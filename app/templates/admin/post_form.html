@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+  <h2 class="fw-bold mb-4">
+    {% if post %}Editar Post{% else %}Nuevo Post{% endif %}
+  </h2>
+
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label">Título</label>
+      <input type="text" name="title" class="form-control" required value="{{ post.title if post }}">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Contenido</label>
+      <textarea name="content" id="editor" class="form-control" rows="10" required>{{ post.content if post }}</textarea>
+    </div>
+
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" name="published" {% if post and post.published %}checked{% endif %}>
+      <label class="form-check-label">Publicar</label>
+    </div>
+
+    <button class="btn btn-success">Guardar</button>
+    <a href="{{ url_for('admin.dashboard') }}" class="btn btn-secondary">Cancelar</a>
+  </form>
+</div>
+
+<!-- 1) Cargar CKEditor -->
+<script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+
+<script>
+CKEDITOR.replace('editor', {
+    filebrowserUploadUrl: "{{ url_for('admin.upload_image') }}",
+    filebrowserUploadMethod: 'form'
+});
+</script>
+
+
+{% endblock %}

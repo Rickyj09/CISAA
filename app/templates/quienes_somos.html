@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section-light">
+    <div class="container">
+
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Quiénes Somos</h1>
+            <p class="lead">
+                Centro de Innovación y Soluciones Agrícolas y Ambientales
+            </p>
+        </div>
+
+        <div class="row align-items-center">
+            <!-- TEXTO -->
+            <div class="col-md-7">
+                <p>
+                    <strong>CISAA</strong> es un Centro de Innovación y Soluciones
+                    Agrícolas y Ambientales, especializado en brindar servicios
+                    integrales de análisis agrícola y ambiental.
+                </p>
+
+                <p>
+                    Nuestro trabajo se enfoca en el análisis de suelos, tejido
+                    foliar, agua, fertilizantes, pesticidas y raíces, proporcionando
+                    resultados confiables, precisos y oportunos que apoyan la toma
+                    de decisiones técnicas en el sector agrícola.
+                </p>
+
+                <p>
+                    Combinamos conocimiento científico, tecnología y experiencia
+                    técnica para ofrecer soluciones que contribuyen a la
+                    productividad agrícola y al cuidado del medio ambiente.
+                </p>
+            </div>
+
+            <!-- LOGO -->
+            <div class="col-md-5 text-center">
+                <img src="{{ url_for('static', filename='img/logo.jpg') }}"
+                     alt="CISAA"
+                     class="img-fluid"
+                     style="max-width: 280px;">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO + CARRUSEL CON DEGRADADO -->
+<section class="hero-gradient">
+    <div class="container">
+
+        <div class="text-center mb-5 text-white">
+            <h1 class="fw-bold mb-3">
+                Servicios Integrales de Análisis Agrícola y Ambiental
+            </h1>
+            <p class="lead">
+                Resultados confiables en el menor tiempo posible.
+            </p>
+        </div>
+
+        <div class="carousel-card shadow-lg">
+
+            <div id="homeCarousel"
+                 class="carousel slide"
+                 data-bs-ride="carousel"
+                 data-bs-interval="4000"
+                 data-bs-pause="false">
+
+                <div class="carousel-inner">
+
+                    <div class="carousel-item active">
+                        <img src="{{ url_for('static', filename='img/carousel_1.png') }}"
+                             class="carousel-img"
+                             alt="Análisis Agrícola">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='img/carousel_2.png') }}"
+                             class="carousel-img"
+                             alt="Análisis Ambiental">
+                    </div>
+
+                    <div class="carousel-item">
+                        <img src="{{ url_for('static', filename='img/carousel_3.png') }}"
+                             class="carousel-img"
+                             alt="Laboratorio">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- RESÚMENES -->
+<section class="section-light text-center">
+    <div class="container">
+
+        <div class="card service-card">
+  <div class="card-img-wrapper">
+    <img src="/static/img/QuieneSomos.png" alt="Quiénes Somos">
+  </div>
+  <div class="card-body text-center">
+    <h5 class="fw-bold">Quiénes Somos</h5>
+    <p>Centro especializado en análisis agrícola y ambiental.</p>
+    <a href="/quienes-somos" class="btn btn-success">Ver más</a>
+  </div>
+</div>
+
+ <div class="card service-card">
+  <div class="card-img-wrapper">
+    <img src="/static/img/Servicios.png" alt="Servicios">
+  </div>
+  <div class="card-body text-center">
+    <h5 class="fw-bold">Servicios</h5>
+    <p>Centro Suelo, foliar, agua, fertilizantes, pesticidas y raíces.</p>
+    <a href="/servicios"  class="btn btn-success">Ver más</a>
+  </div>
+</div>
+
+     <div class="card service-card">
+  <div class="card-img-wrapper">
+    <img src="/static/img/blog.png" alt="Blog">
+  </div>
+  <div class="card-body text-center">
+    <h5 class="fw-bold">Blog Técnico</h5>
+    <p>Artículos técnicos y recomendaciones.</p>
+    <a href="/blog" class="btn btn-success">Ver más</a>
+  </div>
+</div>
+   
+ <div class="card service-card">
+  <div class="card-img-wrapper">
+    <img src="/static/img/contacto.png" alt="Blog">
+  </div>
+  <div class="card-body text-center">
+    <h5 class="fw-bold">Contacto</h5>
+    <p>Escribenos</p>
+    <a href="/contacto" class="btn btn-success">Ver más</a>
+  </div>
+</div>
+        
+
+    </div>
+</section>
+
+{% endblock %}

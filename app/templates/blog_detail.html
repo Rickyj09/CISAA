@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section-white">
+    <div class="container">
+        <h1 class="fw-bold mb-3">{{ post.title }}</h1>
+
+        <p class="text-muted mb-4">
+            Publicado el {{ post.created_at.strftime("%d/%m/%Y") }}
+        </p>
+
+        <div class="post-content">
+            {{ post.content | safe }}
+        </div>
+
+
+        <a href="{{ url_for('main.blog') }}"
+           class="btn btn-outline-success mt-4">
+            ← Volver al blog
+        </a>
+    </div>
+</section>
+
+{% endblock %}
