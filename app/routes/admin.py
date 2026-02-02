@@ -187,17 +187,23 @@ def upload_image():
     else:
         image.save(file_path)
 
-    file_url = url_for("static", filename=f"uploads/blog/{filename}")
+    #file_url = url_for("static", filename=f"uploads/blog/{filename}")
 
     # 🔥 RESPUESTA OBLIGATORIA PARA CKEDITOR 4
-    func_num = request.args.get("CKEditorFuncNum")
-    html = f"""
-    <script>
-        window.parent.CKEDITOR.tools.callFunction(
-            {func_num},
-            "{file_url}",
-            ""
-        );
-    </script>
-    """
-    return Response(html, mimetype="text/html")
+    #func_num = request.args.get("CKEditorFuncNum")
+    #html = f"""
+    #<script>
+      #  window.parent.CKEDITOR.tools.callFunction(
+        #    {func_num},
+        #    "{file_url}",
+        #   ""
+       # );
+    #</script>
+    #"""
+    #return Response(html, mimetype="text/html")-->
+
+    file_url = url_for("static", filename=f"uploads/blog/{filename}")
+
+    return jsonify({
+    "location": file_url
+    })

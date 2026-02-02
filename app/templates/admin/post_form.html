@@ -6,36 +6,58 @@
     {% if post %}Editar Post{% else %}Nuevo Post{% endif %}
   </h2>
 
-  <form method="POST">
-    <div class="mb-3">
-      <label class="form-label">Título</label>
-      <input type="text" name="title" class="form-control" required value="{{ post.title if post }}">
-    </div>
+<form method="POST" id="postForm" novalidate>
 
-    <div class="mb-3">
-      <label class="form-label">Contenido</label>
-      <textarea name="content" id="editor" class="form-control" rows="10" required>{{ post.content if post }}</textarea>
-    </div>
+  <div class="mb-3">
+    <label class="form-label">Título</label>
+    <input type="text" name="title" class="form-control" required>
+  </div>
 
-    <div class="form-check mb-3">
-      <input class="form-check-input" type="checkbox" name="published" {% if post and post.published %}checked{% endif %}>
+  <div class="mb-3">
+    <label class="form-label">Contenido</label>
+    <textarea
+      name="content"
+      id="editor"
+      class="form-control"
+      rows="10"
+    ></textarea>
+  </div>
+
+ <div class="form-check mb-3">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        name="published"
+        {% if post and post.published %}checked{% endif %}
+      >
       <label class="form-check-label">Publicar</label>
     </div>
 
-    <button class="btn btn-success">Guardar</button>
-    <a href="{{ url_for('admin.dashboard') }}" class="btn btn-secondary">Cancelar</a>
-  </form>
+  <button type="submit" class="btn btn-success">Guardar</button>
+</form>
 </div>
 
-<!-- 1) Cargar CKEditor -->
-<script src="https://cdn.ckeditor.com/4.22.1/full/ckeditor.js"></script>
+<!-- TinyMCE -->
+<script src="https://cdn.jsdelivr.net/npm/tinymce@6/tinymce.min.js"></script>
 
 <script>
-CKEDITOR.replace('editor', {
-    filebrowserUploadUrl: "{{ url_for('admin.upload_image') }}",
-    filebrowserUploadMethod: 'form'
+tinymce.init({
+  selector: '#editor',
+  height: 450,
+  menubar: false,
+  plugins: 'lists link image table code',
+  toolbar: 'undo redo | styles | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code',
+  images_upload_url: "{{ url_for('admin.upload_image') }}",
+  automatic_uploads: true,
+  images_upload_credentials: true
 });
 </script>
 
+<!-- 🔥 CLAVE: sincronizar antes del submit -->
+<script>
+document.getElementById('postForm').addEventListener('submit', function () {
+    tinymce.triggerSave();
+});
+</script>
 
 {% endblock %}
