@@ -66,6 +66,46 @@
     </div>
 </nav>
 
+
+{% if current_user.is_authenticated %}
+      <div class="dropdown ms-3">
+        <button class="btn btn-outline-light dropdown-toggle"
+                data-bs-toggle="dropdown">
+          {{ current_user.username }}
+        </button>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item"
+               href="{{ url_for('admin.dashboard') }}">
+              Panel Admin
+            </a>
+          </li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <a class="dropdown-item text-danger"
+               href="{{ url_for('admin.logout') }}">
+              Cerrar sesión
+            </a>
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+    {% if current_user.is_authenticated %}
+  <div class="container mt-3">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+  </div>
+{% endif %}
+
 {% block content %}{% endblock %}
 
 <!-- FOOTER -->

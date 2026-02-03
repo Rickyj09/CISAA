@@ -10,7 +10,7 @@
 
   <div class="mb-3">
     <label class="form-label">Título</label>
-    <input type="text" name="title" class="form-control" required>
+    <input type="text" name="title" class="form-control" value="{{ post.title }}" required>
   </div>
 
   <div class="mb-3">
@@ -20,7 +20,8 @@
       id="editor"
       class="form-control"
       rows="10"
-    ></textarea>
+      
+    >{{ post.content | safe if post }}</textarea>
   </div>
 
  <div class="form-check mb-3">
@@ -49,9 +50,15 @@ tinymce.init({
   toolbar: 'undo redo | styles | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | code',
   images_upload_url: "{{ url_for('admin.upload_image') }}",
   automatic_uploads: true,
-  images_upload_credentials: true
+  images_upload_credentials: true,
+
+  /* 🔥 ESTO ES CLAVE */
+  relative_urls: false,
+  remove_script_host: false,
+  convert_urls: false
 });
 </script>
+
 
 <!-- 🔥 CLAVE: sincronizar antes del submit -->
 <script>

@@ -12,7 +12,7 @@
             </p>
         </div>
 
-        <!-- MENSAJES -->
+        <!-- MENSAJES 
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
             {% for category, message in messages %}
@@ -22,7 +22,7 @@
               </div>
             {% endfor %}
           {% endif %}
-        {% endwith %}
+        {% endwith %}-->
 
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -61,6 +61,41 @@
         </div>
 
     </div>
+
+    <div class="container my-5">
+  <div class="row g-4 justify-content-center">
+
+    <div class="col-lg-6">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="mb-3">Ubicación de nuestra oficina</h5>
+
+          <div class="ratio ratio-16x9">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63714.63540005728!2d-78.534!3d-0.22985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a3f4c0f8e9b%3A0x123456789abcdef!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2sec!4v0000000000"
+              style="border:0;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+
+          <p class="text-muted mt-3 mb-0">
+            <strong>Horario de atención:</strong><br>
+            Lunes a Viernes, 08:00 – 17:00
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+   
+
+  </div>
+</div>
+
 </section>
 
 {% endblock %}
