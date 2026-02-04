@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="section-light py-5">
+  <div class="container">
+
+    <!-- TÍTULO -->
+    <div class="text-center mb-5">
+      <h1 class="fw-bold">Análisis de Fertilizantes</h1>
+      <p class="lead">
+        Evaluación técnica de fertilizantes para garantizar calidad,
+        composición y efectividad agronómica.
+      </p>
+    </div>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="row align-items-center mb-5">
+      <div class="col-md-6">
+        <p>
+          En <strong>CISAA – Centro de Innovación y Soluciones Agrícolas y Ambientales</strong>,
+          realizamos análisis de fertilizantes con el objetivo de verificar su
+          composición química, concentración de nutrientes y cumplimiento de
+          especificaciones técnicas.
+        </p>
+
+        <p>
+          Estos análisis permiten a productores, distribuidores y técnicos
+          agrícolas tomar decisiones informadas sobre la aplicación de
+          fertilizantes, optimizando costos y mejorando la eficiencia productiva.
+        </p>
+      </div>
+
+      <div class="col-md-6 d-flex justify-content-end">
+  <img
+    src="{{ url_for('static', filename='img/laboratorio/fertilizantes/fertilizantes.png') }}"
+    alt="Análisis de Fertilizantes"
+    class="img-fluid rounded shadow-sm"
+    style="max-width: 320px;"
+  >
+</div>
+
+    </div>
+
+    <!-- ALCANCE DEL SERVICIO -->
+    <div class="row mb-5">
+      <div class="col">
+        <h3 class="fw-bold mb-3">¿Qué analizamos?</h3>
+        <ul class="list-group list-group-flush">
+          <li >✔️ Contenido de macronutrientes (N, P, K)</li>
+          <li >✔️ Micronutrientes (Ca, Mg, S, Fe, Zn, Cu, Mn, B)</li>
+          <li >✔️ Fertilizantes sólidos y líquidos</li>
+          <li >✔️ Pureza y concentración de nutrientes</li>
+          <li >✔️ Cumplimiento de normas técnicas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- BENEFICIOS -->
+    <div class="row mb-5">
+      <div class="col">
+        <h3 class="fw-bold mb-3">Beneficios del análisis</h3>
+        <ul>
+          <li>Optimización del uso de fertilizantes</li>
+          <li>Verificación de calidad del producto adquirido</li>
+          <li>Soporte técnico para programas de fertilización</li>
+          <li>Reducción de riesgos agronómicos y económicos</li>
+        </ul>
+      </div>
+    </div>
+
+     <!-- GALERÍA -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2398.jpg') }}"
+               class="card-img-top"
+               alt="fertilizantes">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2413.jpg') }}"
+               class="card-img-top"
+               alt="fertilizantes">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2416.jpg') }}"
+               class="card-img-top"
+               alt="fertilizantes">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2413.jpg') }}"
+               class="card-img-top"
+               alt="fertilizantes">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center mt-4">
+      <a href="{{ url_for('main.contacto') }}" class="btn btn-success btn-lg">
+        Solicitar información
+      </a>
+    </div>
+
+  </div>
+</section>
+
+{% endblock %}

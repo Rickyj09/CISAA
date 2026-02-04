@@ -2,6 +2,7 @@ from flask import Flask
 from app.extensions import db, login_manager
 import os
 
+
 def create_app():
     app = Flask(
         __name__,
@@ -27,8 +28,10 @@ def create_app():
 
     from app.routes.main import main_bp
     from app.routes.admin import admin_bp
+    from app.routes.service import services_bp
 
     app.register_blueprint(main_bp)
     app.register_blueprint(admin_bp)
+    app.register_blueprint(services_bp)
 
     return app

@@ -1,0 +1,81 @@
+{% extends "base_public.html" %}
+{% block content %}
+
+<section class="section-light">
+  <div class="container">
+
+    <h1 class="fw-bold mb-4">Análisis Foliar</h1>
+
+    <p class="lead">
+      El análisis foliar permite evaluar el estado nutricional real de la planta,
+      identificando deficiencias o excesos de nutrientes durante el desarrollo del cultivo.
+    </p>
+
+    <h4>Elementos analizados</h4>
+    <ul>
+      <li>Nitrógeno (N)</li>
+      <li>Fósforo (P)</li>
+      <li>Potasio (K)</li>
+      <li>Calcio (Ca)</li>
+      <li>Magnesio (Mg)</li>
+      <li>Micronutrientes esenciales</li>
+    </ul>
+
+    <h4>¿Por qué realizar análisis foliar?</h4>
+    <p>
+      Permite ajustar programas de fertilización en tiempo real,
+      mejorando la eficiencia del cultivo y evitando pérdidas de rendimiento.
+    </p>
+
+    <h4>Ventajas</h4>
+    <ul>
+      <li>Diagnóstico preciso del estado nutricional</li>
+      <li>Optimización del uso de fertilizantes</li>
+      <li>Mejora de la calidad y productividad del cultivo</li>
+    </ul>
+
+     <!-- GALERÍA -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_foliar/DSC_2487.jpg') }}"
+               class="card-img-top"
+               alt="Análisis foliar">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_foliar/DSC_2477.jpg') }}"
+               class="card-img-top"
+               alt="Analisis foliar">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_foliar/DSC_2476.jpg') }}"
+               class="card-img-top"
+               alt="Equipo de análisis foliar">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_foliar/DSC_2487.jpg') }}"
+               class="card-img-top"
+               alt="Proceso de análisis foliar">
+        </div>
+      </div>
+
+    </div>
+
+    <a href="/contacto" class="btn btn-success mt-4">
+      Solicitar este servicio
+    </a>
+
+  </div>
+</section>
+
+{% endblock %}

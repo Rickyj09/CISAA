@@ -1,0 +1,82 @@
+{% extends "base_public.html" %}
+{% block content %}
+
+<section class="section-light">
+  <div class="container">
+
+    <h1 class="fw-bold mb-4">Análisis de Agua</h1>
+
+    <p class="lead">
+      El análisis de agua permite evaluar su calidad para riego agrícola,
+      garantizando un uso seguro y eficiente del recurso hídrico.
+    </p>
+
+    <h4>Parámetros evaluados</h4>
+    <ul>
+      <li>pH</li>
+      <li>Conductividad eléctrica</li>
+      <li>Sólidos disueltos totales</li>
+      <li>Sodio, calcio y magnesio</li>
+      <li>Relación de absorción de sodio (RAS)</li>
+      <li>Carbonatos y bicarbonatos</li>
+    </ul>
+
+    <h4>Importancia del análisis de agua</h4>
+    <p>
+      Un agua de riego inadecuada puede afectar la estructura del suelo,
+      disminuir la absorción de nutrientes y reducir el rendimiento de los cultivos.
+    </p>
+
+    <h4>Aplicaciones</h4>
+    <ul>
+      <li>Evaluación de aptitud para riego</li>
+      <li>Prevención de salinización del suelo</li>
+      <li>Manejo adecuado del sistema de riego</li>
+    </ul>
+
+     <!-- GALERÍA -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_agua/DSC_2406.jpg') }}"
+               class="card-img-top"
+               alt="Análisis de suelo en laboratorio">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_agua/DSC_2464.jpg') }}"
+               class="card-img-top"
+               alt="Medición de parámetros del suelo">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_agua/DSC_2406.jpg') }}"
+               class="card-img-top"
+               alt="Equipo de análisis de suelo">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_agua/DSC_2464.jpg') }}"
+               class="card-img-top"
+               alt="Proceso de análisis de suelo">
+        </div>
+      </div>
+
+    </div>
+
+
+    <a href="/contacto" class="btn btn-success mt-4">
+      Solicitar este servicio
+    </a>
+
+  </div>
+</section>
+
+{% endblock %}

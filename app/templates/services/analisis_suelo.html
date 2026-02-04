@@ -1,0 +1,85 @@
+{% extends "base_public.html" %}
+{% block content %}
+
+<section class="section-light">
+  <div class="container">
+
+    <h1 class="fw-bold mb-4">Análisis de Suelo</h1>
+
+    <p class="lead">
+      El análisis de suelo es una herramienta fundamental para evaluar la
+      fertilidad y las condiciones físicas y químicas del suelo, permitiendo
+      una adecuada planificación de la fertilización y el manejo agrícola.
+    </p>
+
+    <h4>¿Qué analizamos?</h4>
+    <ul>
+      <li>pH del suelo</li>
+      <li>Materia orgánica</li>
+      <li>Conductividad eléctrica</li>
+      <li>Macronutrientes (N, P, K, Ca, Mg, S)</li>
+      <li>Micronutrientes (Fe, Zn, Cu, Mn, B)</li>
+      <li>Textura y capacidad de retención</li>
+    </ul>
+
+    <h4>¿Para qué sirve el análisis de suelo?</h4>
+    <p>
+      Permite tomar decisiones técnicas confiables sobre fertilización,
+      corrección de suelos, selección de cultivos y optimización del rendimiento,
+      reduciendo costos y evitando impactos ambientales negativos.
+    </p>
+
+    <h4>Beneficios</h4>
+    <ul>
+      <li>Uso eficiente de fertilizantes</li>
+      <li>Mejora de la productividad agrícola</li>
+      <li>Protección del suelo y del ambiente</li>
+    </ul>
+
+     <!-- GALERÍA -->
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_suelo/DSC_2381.jpg') }}"
+               class="card-img-top"
+               alt="Análisis de suelo en laboratorio">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_suelo/DSC_2382.jpg') }}"
+               class="card-img-top"
+               alt="Medición de parámetros del suelo">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_suelo/DSC_2452.jpg') }}"
+               class="card-img-top"
+               alt="Equipo de análisis de suelo">
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+        <div class="card h-100 shadow-sm">
+          <img src="{{ url_for('static', filename='img/laboratorio/analisis_suelo/DSC_2452.jpg') }}"
+               class="card-img-top"
+               alt="Proceso de análisis de suelo">
+        </div>
+      </div>
+
+    </div>
+
+    <a href="/contacto" class="btn btn-success mt-4">
+      Solicitar este servicio
+    </a>
+
+    
+
+  </div>
+</section>
+
+{% endblock %}

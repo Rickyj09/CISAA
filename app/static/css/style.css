@@ -3,6 +3,19 @@
    Azul – Café – Verde
    ========================= */
 
+/* =========================
+   DEGRADADO CORPORATIVO CISAA
+   Azul – Café – Verde
+   ========================= */
+.cisaa-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(30, 58, 138, 0.85),  /* azul */
+    rgba(93, 64, 55, 0.80),   /* café */
+    rgba(27, 94, 32, 0.85)    /* verde */
+  );
+}
+
 /* SECCIÓN HERO + CARRUSEL CON DEGRADADO */
 .hero-gradient {
     background: linear-gradient(
