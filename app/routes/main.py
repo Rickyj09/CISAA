@@ -1,6 +1,9 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from flask import Blueprint, render_template
 from app.models.blog import BlogPost
+from flask_mail import Message
+from app.extensions import mail
+
 
 main_bp = Blueprint('main', __name__)
 
@@ -18,6 +21,7 @@ def servicios():
 
 
 # 🔴 ESTA ES LA ÚNICA QUE CAMBIA
+
 @main_bp.route('/contacto', methods=['GET', 'POST'])
 def contacto():
     if request.method == 'POST':
@@ -30,23 +34,33 @@ def contacto():
             flash('Todos los campos son obligatorios.', 'danger')
             return redirect(url_for('main.contacto'))
 
-        # Aquí luego puedes:
-        # - guardar en base de datos
-        # - enviar correo
-        # - enviar WhatsApp
+        try:
+            msg = Message(
+                subject=f"[CISAA] {asunto}",
+                recipients=["laboratoriocisaa@gmail.com"],
+                reply_to=email,
+                body=f"""
+Nuevo mensaje desde la web CISAA
 
-        flash('Mensaje enviado correctamente. Nos contactaremos contigo.', 'success')
+Nombre: {nombre}
+Correo: {email}
+
+Mensaje:
+{mensaje}
+"""
+            )
+            mail.send(msg)
+
+            flash("Mensaje enviado correctamente. Nos contactaremos contigo.", "success")
+
+        except Exception as e:
+            flash("No se pudo enviar el mensaje. Inténtalo más tarde.", "danger")
+            print("ERROR MAIL:", e)
+
         return redirect(url_for('main.contacto'))
 
     return render_template('contacto.html')
 
-@main_bp.route("/blog")
-def blog():
-    posts = BlogPost.query.filter_by(published=True)\
-        .order_by(BlogPost.created_at.desc())\
-        .all()
-
-    return render_template("blog.html", posts=posts)
 
 
 
