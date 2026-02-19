@@ -68,49 +68,46 @@
       </div>
     </div>
 
-     <!-- GALERÍA -->
+      <!-- GALERÍA -->
     <div class="row g-4">
 
-      <div class="col-md-6 col-lg-3">
+      <!-- 3 columnas en desktop, 2 en tablet, 1 en móvil -->
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2398.jpg') }}"
-               class="card-img-top"
-               alt="fertilizantes">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_0106.JPG') }}"
+               class="card-img-top cisaa-gallery-img"
+               alt="Análisis de fertilizantes - muestra 1">
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-3">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2413.jpg') }}"
-               class="card-img-top"
-               alt="fertilizantes">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_0108.JPG') }}"
+               class="card-img-top cisaa-gallery-img"
+               alt="Análisis de fertilizantes - muestra 2">
         </div>
       </div>
 
-      <div class="col-md-6 col-lg-3">
+      <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 shadow-sm">
-          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2416.jpg') }}"
-               class="card-img-top"
-               alt="fertilizantes">
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card h-100 shadow-sm">
-          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_2413.jpg') }}"
-               class="card-img-top"
-               alt="fertilizantes">
+          <img src="{{ url_for('static', filename='img/laboratorio/fertilizantes/DSC_0115.JPG') }}"
+               class="card-img-top cisaa-gallery-img"
+               alt="Análisis de fertilizantes - muestra 3">
         </div>
       </div>
 
     </div>
-
+     
     <!-- CTA -->
-    <div class="text-center mt-4">
-      <a href="{{ url_for('main.contacto') }}" class="btn btn-success btn-lg">
-        Solicitar información
-      </a>
-    </div>
+    <div class="d-flex gap-3 mt-4 flex-wrap">
+  <a href="/contacto" class="btn btn-success">
+    Solicitar este servicio
+  </a>
+
+  <a href="/servicios" class="btn btn-outline-success">
+    ← Volver a Servicios
+  </a>
+</div>
 
   </div>
 </section>

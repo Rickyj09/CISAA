@@ -1,71 +1,109 @@
-{% extends "base_public.html" %}
+{% extends "base.html" %}
+{% block title %}Blog Técnico{% endblock %}
 
 {% block content %}
 
-<!-- ===== HERO / ENCABEZADO ===== -->
-<section class="hero-gradient services-header text-center text-white">
-    <div class="container text-center">
-        <h1 class="fw-bold mb-3">Blog Técnico</h1>
-        <p class="lead text-muted">
-            Artículos técnicos y recomendaciones en agricultura y medio ambiente.
-        </p>
-    </div>
+<!-- HERO tipo WUR -->
+<section class="wur-hero">
+  <div class="wur-hero__bg"></div>
+  <div class="wur-hero__overlay"></div>
+
+  <div class="container wur-hero__content">
+    <h1 class="wur-hero__title">Blog Técnico</h1>
+    <p class="wur-hero__subtitle">Artículos técnicos y recomendaciones en agricultura y medio ambiente.</p>
+  </div>
+
+  <!-- Quick links flotante (dentro del hero) -->
+  <aside class="wur-quicklinks">
+    <h3 class="wur-quicklinks__title">Quick links</h3>
+    <a class="wur-quicklinks__item" href="/servicios">Servicios</a>
+    <a class="wur-quicklinks__item" href="/quienes-somos">Quiénes Somos</a>
+    <a class="wur-quicklinks__cta" href="/contacto">Contáctanos →</a>
+  </aside>
 </section>
 
-<!-- ===== LISTADO DE ARTÍCULOS ===== -->
-<section class="section-white py-5">
-    <div class="container">
+<!-- Buscador grande -->
+<section class="wur-searchbar">
+  <div class="container">
+    <form method="get" class="wur-searchbar__form">
+      <input type="text" name="q" value="{{ q or '' }}" placeholder="Buscar en el Blog…" class="wur-searchbar__input">
+      <button class="wur-searchbar__btn" type="submit">Search</button>
+    </form>
+  </div>
+</section>
 
-        {% if posts %}
-        <div class="row g-4">
+<!-- Layout 2 columnas -->
+<section class="container wur-blog-layout">
+  <div class="row g-4">
 
-            {% for post in posts %}
-            <div class="col-md-4">
-                <div class="card h-100 shadow-sm">
-
-                    <div class="card-body d-flex flex-column">
-
-                        <!-- TÍTULO -->
-                        <h5 class="card-title fw-bold">
-                            {{ post.title }}
-                        </h5>
-
-                        <!-- FECHA -->
-                        <small class="text-muted mb-2">
-                            Publicado el {{ post.created_at.strftime('%d/%m/%Y') }}
-                        </small>
-
-                        <!-- RESUMEN -->
-                        <p class="card-text mt-2">
-                            {{ post.summary }}
-                        </p>
-
-                        <!-- BOTÓN -->
-                        <div class="mt-auto">
-                            <a href="{{ url_for('main.blog_detail', slug=post.slug) }}"
-                               class="btn btn-outline-success">
-                                Leer más →
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-
-        </div>
-        {% else %}
-
-        <!-- MENSAJE CUANDO NO HAY POSTS -->
-        <div class="text-center py-5">
-            <p class="text-muted">
-                No hay artículos publicados todavía.
-            </p>
-        </div>
-
+    <!-- Feed -->
+    <div class="col-lg-8">
+      <div class="wur-feed">
+        {% if q %}
+          <div class="wur-result-info">Resultados para: <strong>{{ q }}</strong></div>
         {% endif %}
 
+        {% for post in posts %}
+          <article class="wur-postcard">
+            <div class="wur-postcard__body">
+              <h2 class="wur-postcard__title">{{ post.title if post.title is defined else post.titulo }}</h2>
+              <div class="wur-postcard__meta">
+                Publicado el {{ post.created_at.strftime('%d/%m/%Y') if post.created_at else '' }}
+              </div>
+
+              {% if post.summary is defined and post.summary %}
+                <p class="wur-postcard__excerpt">{{ post.summary }}</p>
+              {% endif %}
+
+              <a class="wur-postcard__link" href="{{ url_for('main.blog_detail', slug=post.slug) }}">
+                Leer más →
+              </a>
+            </div>
+          </article>
+        {% else %}
+          <div class="alert alert-light border">No hay artículos para mostrar.</div>
+        {% endfor %}
+      </div>
     </div>
+
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+      <div class="wur-sidebar">
+
+        <!--<div class="wur-sidebar__card">
+          <h4 class="wur-sidebar__title">Categorías</h4>
+          <div class="wur-chiplist">
+            {% for label, value in categories %}
+              <a class="wur-chip" href="{{ url_for('main.blog') }}?q={{ value }}">{{ cat }}</a>
+            {% endfor %}
+          </div>
+        </div>-->
+
+        <div class="wur-sidebar__card">
+          <h4 class="wur-sidebar__title">Publicaciones recientes</h4>
+          <ul class="wur-recent">
+            {% for rp in recent_posts %}
+              <li>
+                <a href="{{ url_for('main.blog_detail', slug=rp.slug) }}">
+                  {{ rp.title if rp.title is defined else rp.titulo }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="wur-sidebar__card">
+          <h4 class="wur-sidebar__title">Boletín técnico</h4>
+          <form method="post" action="/contacto">
+            <input class="form-control mb-2" placeholder="Tu email" type="email" required>
+            <button class="btn btn-success w-100" type="submit">Suscribirme</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
 </section>
 
 {% endblock %}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"></head>
+<body style="font-family: Arial, Helvetica, sans-serif; background:#f4f6f5; margin:0; padding:0;">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr><td align="center" style="padding:30px 0;">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:linear-gradient(135deg,#1e3a8a,#5d4037,#1b5e20);padding:25px;color:#fff;">
+            <h2 style="margin:0;">CISAA</h2>
+            <p style="margin:5px 0 0;font-size:14px;">Centro de Innovación y Soluciones Agrícolas y Ambientales</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:30px;color:#333;">
+            <h3 style="margin-top:0;">Nuevo mensaje de contacto</h3>
+            <p>Se ha recibido un nuevo mensaje desde el formulario web:</p>
+
+            <table width="100%" cellpadding="8" cellspacing="0" style="margin-top:20px;border-collapse:collapse;">
+              <tr><td style="font-weight:bold;width:120px;">Nombre:</td><td>{{ nombre }}</td></tr>
+              <tr><td style="font-weight:bold;">Correo:</td><td>{{ email }}</td></tr>
+              <tr><td style="font-weight:bold;">Asunto:</td><td>{{ asunto }}</td></tr>
+            </table>
+
+            <div style="margin-top:25px;">
+              <p style="font-weight:bold;margin-bottom:8px;">Mensaje:</p>
+              <div style="background:#f4f6f5;padding:15px;border-radius:6px;white-space:pre-wrap;">{{ mensaje }}</div>
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background:#eef4f1;padding:20px;text-align:center;font-size:13px;color:#555;">
+            Enviado desde el sitio web de CISAA · © {{ year }}
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

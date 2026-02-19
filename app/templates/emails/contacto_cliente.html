@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"></head>
+<body style="font-family: Arial, Helvetica, sans-serif; background:#f4f6f5; margin:0; padding:0;">
+  <table width="100%" cellpadding="0" cellspacing="0">
+    <tr><td align="center" style="padding:30px 0;">
+      <table width="600" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 8px 20px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:linear-gradient(135deg,#1e3a8a,#5d4037,#1b5e20);padding:25px;color:#fff;">
+            <h2 style="margin:0;">CISAA</h2>
+            <p style="margin:5px 0 0;font-size:14px;">Centro de Innovación y Soluciones Agrícolas y Ambientales</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:30px;color:#333;">
+            <h3 style="margin-top:0;">Hemos recibido tu mensaje</h3>
+            <p>Estimado/a <strong>{{ nombre }}</strong>,</p>
+
+            <p>
+              Gracias por contactarnos. Hemos recibido tu solicitud y nuestro equipo
+              se comunicará contigo a la brevedad.
+            </p>
+
+            <div style="background:#f4f6f5;padding:15px;border-radius:6px;margin-top:15px;">
+              <p style="margin:0;"><strong>Resumen:</strong></p>
+              <p style="margin:8px 0 0;"><strong>Asunto:</strong> {{ asunto }}</p>
+            </div>
+
+            <p style="margin-top:18px;">
+              Atentamente,<br>
+              <strong>CISAA</strong><br>
+              Centro de Innovación y Soluciones Agrícolas y Ambientales
+            </p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="background:#eef4f1;padding:20px;text-align:center;font-size:13px;color:#555;">
+            © {{ year }} CISAA · Todos los derechos reservados
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>

@@ -21,7 +21,7 @@ def create_app():
     app.config["MAIL_USE_SSL"] = False
     app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
     app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
-    app.config["MAIL_DEFAULT_SENDER"] = "laboratoriocisaa@gmail.com>"
+    app.config["MAIL_DEFAULT_SENDER"] = "laboratoriocisaa@gmail.com"
 
     db.init_app(app)
     login_manager.init_app(app)
@@ -35,5 +35,6 @@ def create_app():
     app.register_blueprint(main_bp)
     app.register_blueprint(admin_bp)
     app.register_blueprint(services_bp)
+    
 
     return app

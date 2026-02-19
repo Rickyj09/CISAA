@@ -1,0 +1,201 @@
+/* WUR-ish layout for CISAA Blog */
+.wur-hero{
+  position: relative;
+  min-height: 320px;   /* ajustable */
+  overflow: hidden;    /* clave: overlay no “se sale” */
+}
+
+.wur-hero__bg{
+  position: absolute;
+  inset: 0;
+  background-image: url("/static/img/blog_hero.jpg");
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.03);
+}
+.wur-hero__overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.42);
+  pointer-events: none;  
+}
+.wur-hero__content{
+  position: relative;
+  padding: 60px 15px 40px 15px;  /* 👈 menos espacio */
+  text-align: center;
+  color: #fff;
+  z-index: 2;
+}
+.wur-hero__title{
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: .2px;
+  margin: 0 0 10px 0;
+}
+.wur-hero__subtitle{
+  max-width: 820px;
+  margin: 0 auto;
+  opacity: .9;
+  font-size: 1.1rem;
+}
+
+/* Quick links floating card */
+.wur-quicklinks{
+  width: 340px;
+  background: #bfe3f1;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 10px 26px rgba(0,0,0,.18);
+  z-index: 3;
+}
+
+/* Desktop: flotante */
+@media (min-width: 992px){
+  .wur-quicklinks{
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-35%);
+    z-index: 5;
+  }
+}
+/* Mobile/Tablet: no flotante */
+@media (max-width: 991.98px){
+  .wur-quicklinks{
+    position: static;
+    width: auto;
+    margin: 14px auto 0 auto;
+  }
+}
+.wur-quicklinks__title{
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  color:#083b4c;
+}
+.wur-quicklinks__item{
+  display:flex;
+  padding: 11px 10px;
+  border-bottom: 1px solid rgba(8,59,76,.12);
+  text-decoration:none;
+  color:#083b4c;
+  font-weight:600;
+}
+.wur-quicklinks__item:hover{ background: rgba(255,255,255,.35); border-radius: 12px; }
+.wur-quicklinks__cta{
+  display:block;
+  margin-top: 14px;
+  padding: 12px 14px;
+  background:#083b4c;
+  color:#fff;
+  text-decoration:none;
+  border-radius: 999px;
+  text-align:center;
+  font-weight:800;
+}
+
+/* Search bar section */
+.wur-searchbar__form{
+  max-width: 900px;
+  margin: auto;
+}
+.wur-searchbar__form{
+  background: #f6f2e8;
+  border-radius: 999px;
+  display:flex;
+  gap: 10px;
+  padding: 12px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.08);
+  align-items:center;
+}
+.wur-searchbar__input{
+  border: 0;
+  outline: none;
+  background: transparent;
+  flex:1;
+  padding: 10px 14px;
+  font-size: 1rem;
+}
+.wur-searchbar__btn{
+  border: 0;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: #198754; /* Bootstrap success */
+  color:#fff;
+  font-weight: 800;
+}
+
+/* Blog layout */
+.wur-blog-layout{ padding: 26px 0 60px 0; }
+
+.wur-postcard{
+  background:#fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  padding: 18px 18px 16px 18px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.05);
+  margin-bottom: 16px;
+}
+.wur-postcard__title{
+  font-weight: 800;
+  margin: 0 0 8px 0;
+}
+.wur-postcard__meta{
+  color: rgba(0,0,0,.55);
+  font-size: .95rem;
+  margin-bottom: 10px;
+}
+.wur-postcard__excerpt{ margin: 0 0 12px 0; color: rgba(0,0,0,.75); }
+.wur-postcard__link{
+  display:inline-flex;
+  padding: 10px 14px;
+  border: 1px solid #198754;
+  color:#198754;
+  text-decoration:none;
+  border-radius: 10px;
+  font-weight: 800;
+}
+.wur-postcard__link:hover{ background:#198754; color:#fff; }
+
+.wur-sidebar__card{
+  background:#fff;
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.05);
+  margin-bottom: 16px;
+}
+.wur-sidebar__title{ margin:0 0 12px 0; font-weight: 800; }
+
+.wur-chiplist{ display:flex; flex-wrap:wrap; gap: 8px; }
+.wur-chip{
+  text-decoration:none;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(25,135,84,.10);
+  color:#198754;
+}
+.wur-chip:hover{ background: rgba(25,135,84,.20); }
+
+.wur-recent{ list-style:none; padding-left: 0; margin: 0; }
+.wur-recent li{ padding: 8px 0; border-bottom: 1px solid rgba(0,0,0,.07); }
+.wur-recent a{ text-decoration:none; font-weight: 700; color:#0b3d2e; }
+.wur-recent a:hover{ text-decoration: underline; }
+
+/* Responsive: hide floating quicklinks on small screens */
+@media (max-width: 992px){
+  .wur-quicklinks{ position: static; width: auto; margin: 14px auto 0 auto; }
+  .wur-hero__content{ padding: 90px 15px 30px 15px; }
+}
+
+.navbar, .navbar-fixed-top, header {
+  position: relative;
+  z-index: 9999; /* 👈 el menú siempre encima */
+}
+
+.wur-searchbar{
+  position: relative;
+  z-index: 10;          /* encima del hero */
+  margin-top: -38px;    /* pega el buscador al hero */
+  padding-bottom: 10px;
+}
